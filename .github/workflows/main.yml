@@ -1,0 +1,12 @@
+name: Run Python Test
+on:
+  push:
+jobs:
+  build:
+    name: run python
+    runs-on: ubuntu-lastest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run python
+      run: |
+        python3 test.py
