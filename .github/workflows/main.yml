@@ -1,12 +1,17 @@
-name: Run Python Test
-on:
-  push:
+name: Run my python
+
+on: 
+  push: # do this every push
+
 jobs:
   build:
-    name: run python
-    runs-on: ubuntu-lastest
+    name: Set up environment
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run python
+    - uses: actions/checkout@v2 # what kind of github action version to use
+    - name: Install dependencies
+      run: |
+        pip3 install --upgrade pip
+    - name: Run my python
       run: |
         python3 test.py
