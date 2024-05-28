@@ -2,11 +2,11 @@ name: Run my python
 
 on: 
   push: # do this every push
-  schedule:
-  - cron: "0 8 * * *"
+  #schedule:
+  #- cron: "0 8 * * *"
 jobs:
   build:
-    name: Set up environment
+    name: Set up environment 1
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2 # what kind of github action version to use
@@ -14,5 +14,16 @@ jobs:
       run: |
         pip3 install --upgrade pip
     - name: Run my python
+      run: |
+        python3 test.py
+  build2:
+    name: Set up environment 2
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2 # what kind of github action version to use
+    - name: Install dependencies
+      run: |
+        pip3 install --upgrade pip
+    - name: Run my python 2
       run: |
         python3 test.py
